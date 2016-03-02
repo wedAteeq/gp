@@ -1,0 +1,177 @@
+fileFormatVersion: 2
+guid: e7a35193b8e9240318abc25f5425a620
+timeCreated: 1455079578
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: banner
+    100004: light3
+    100006: light_set_01
+    100008: light_set_01_MeshPart0
+    100010: light_set_01_MeshPart1
+    100012: light_set_02
+    100014: light_set_02_MeshPart0
+    100016: light_set_02_MeshPart1
+    100018: photo_frame01
+    100020: photo_frame02
+    100022: photo_frame03
+    100024: photo_frame04
+    100026: receiption_table
+    100028: room_wall_floor_glass
+    100030: Sofa
+    100032: Sofa01
+    100034: Sofa02
+    100036: Sofa03
+    100038: Sofa04
+    100040: Sofa05
+    100042: Sofa06
+    100044: Sofa07
+    400000: //RootNode
+    400002: banner
+    400004: light3
+    400006: light_set_01
+    400008: light_set_01_MeshPart0
+    400010: light_set_01_MeshPart1
+    400012: light_set_02
+    400014: light_set_02_MeshPart0
+    400016: light_set_02_MeshPart1
+    400018: photo_frame01
+    400020: photo_frame02
+    400022: photo_frame03
+    400024: photo_frame04
+    400026: receiption_table
+    400028: room_wall_floor_glass
+    400030: Sofa
+    400032: Sofa01
+    400034: Sofa02
+    400036: Sofa03
+    400038: Sofa04
+    400040: Sofa05
+    400042: Sofa06
+    400044: Sofa07
+    2300000: banner
+    2300002: light3
+    2300004: light_set_01_MeshPart0
+    2300006: light_set_01_MeshPart1
+    2300008: light_set_02_MeshPart0
+    2300010: light_set_02_MeshPart1
+    2300012: photo_frame01
+    2300014: photo_frame02
+    2300016: photo_frame03
+    2300018: photo_frame04
+    2300020: receiption_table
+    2300022: room_wall_floor_glass
+    2300024: Sofa
+    2300026: Sofa01
+    2300028: Sofa02
+    2300030: Sofa03
+    2300032: Sofa04
+    2300034: Sofa05
+    2300036: Sofa06
+    2300038: Sofa07
+    3300000: banner
+    3300002: light3
+    3300004: light_set_01_MeshPart0
+    3300006: light_set_01_MeshPart1
+    3300008: light_set_02_MeshPart0
+    3300010: light_set_02_MeshPart1
+    3300012: photo_frame01
+    3300014: photo_frame02
+    3300016: photo_frame03
+    3300018: photo_frame04
+    3300020: receiption_table
+    3300022: room_wall_floor_glass
+    3300024: Sofa
+    3300026: Sofa01
+    3300028: Sofa02
+    3300030: Sofa03
+    3300032: Sofa04
+    3300034: Sofa05
+    3300036: Sofa06
+    3300038: Sofa07
+    4300000: banner
+    4300002: light3
+    4300004: light_set_01_MeshPart0
+    4300006: light_set_01_MeshPart1
+    4300008: light_set_02_MeshPart0
+    4300010: light_set_02_MeshPart1
+    4300012: photo_frame01
+    4300014: photo_frame02
+    4300016: photo_frame03
+    4300018: photo_frame04
+    4300020: receiption_table
+    4300022: room_wall_floor_glass
+    4300024: Sofa
+    4300026: Sofa01
+    4300028: Sofa02
+    4300030: Sofa03
+    4300032: Sofa04
+    4300034: Sofa05
+    4300036: Sofa06
+    4300038: Sofa07
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

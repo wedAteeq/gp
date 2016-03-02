@@ -1,0 +1,177 @@
+fileFormatVersion: 2
+guid: b98e9a080ced4481ea22c7ad8af94ef8
+timeCreated: 1455079506
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: banner
+    100004: Camera_cl1
+    100006: Camera_cl1.target
+    100008: Camera_cl3
+    100010: Camera_cl3.target
+    100012: Camera_cl5
+    100014: Camera_cl5.target
+    100016: Camera_cli
+    100018: Camera_cli.target
+    100020: Camera_ext
+    100022: Camera_ext.target
+    100024: light set0
+    100026: light set_
+    100028: light3
+    100030: photo_fra0
+    100032: photo_fra1
+    100034: photo_fra2
+    100036: photo_fram
+    100038: receiption
+    100040: room_wall_
+    100042: Sofa
+    100044: Sofa01
+    100046: Sofa02
+    100048: Sofa03
+    100050: Sofa04
+    100052: Sofa05
+    100054: Sofa06
+    100056: Sofa07
+    400000: //RootNode
+    400002: banner
+    400004: Camera_cl1
+    400006: Camera_cl1.target
+    400008: Camera_cl3
+    400010: Camera_cl3.target
+    400012: Camera_cl5
+    400014: Camera_cl5.target
+    400016: Camera_cli
+    400018: Camera_cli.target
+    400020: Camera_ext
+    400022: Camera_ext.target
+    400024: light set0
+    400026: light set_
+    400028: light3
+    400030: photo_fra0
+    400032: photo_fra1
+    400034: photo_fra2
+    400036: photo_fram
+    400038: receiption
+    400040: room_wall_
+    400042: Sofa
+    400044: Sofa01
+    400046: Sofa02
+    400048: Sofa03
+    400050: Sofa04
+    400052: Sofa05
+    400054: Sofa06
+    400056: Sofa07
+    2300000: banner
+    2300002: light3
+    2300004: photo_fra0
+    2300006: photo_fra1
+    2300008: photo_fra2
+    2300010: photo_fram
+    2300012: receiption
+    2300014: room_wall_
+    2300016: Sofa
+    2300018: Sofa01
+    2300020: Sofa02
+    2300022: Sofa03
+    2300024: Sofa04
+    2300026: Sofa05
+    2300028: Sofa06
+    2300030: Sofa07
+    3300000: banner
+    3300002: light3
+    3300004: photo_fra0
+    3300006: photo_fra1
+    3300008: photo_fra2
+    3300010: photo_fram
+    3300012: receiption
+    3300014: room_wall_
+    3300016: Sofa
+    3300018: Sofa01
+    3300020: Sofa02
+    3300022: Sofa03
+    3300024: Sofa04
+    3300026: Sofa05
+    3300028: Sofa06
+    3300030: Sofa07
+    4300000: room_wall_
+    4300002: banner
+    4300004: receiption
+    4300006: light3
+    4300008: Sofa02
+    4300010: Sofa03
+    4300012: Sofa01
+    4300014: Sofa
+    4300016: Sofa04
+    4300018: Sofa05
+    4300020: Sofa06
+    4300022: Sofa07
+    4300024: photo_fram
+    4300026: photo_fra0
+    4300028: photo_fra1
+    4300030: photo_fra2
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
