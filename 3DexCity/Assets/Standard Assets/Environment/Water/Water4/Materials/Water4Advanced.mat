@@ -363,6 +363,10 @@ Material:
         second: {r: 0.7033888, g: -0.6799999, b: 0.7175735, a: -0.2}
       data:
         first:
+          name: _WaveOffset
+        second: {r: 1, g: 1, b: -0.01, a: -0.01}
+      data:
+        first:
           name: _DepthColor
         second: {r: 0.027511697, g: 0.14179105, b: 0.13226777, a: 0.4627451}
       data:
@@ -377,10 +381,6 @@ Material:
         first:
           name: _WaveScale4
         second: {r: 0.1, g: 0.1, b: 0.01, a: 0.01}
-      data:
-        first:
-          name: _WaveOffset
-        second: {r: 1, g: 1, b: -0.01, a: -0.01}
       data:
         first:
           name: _DisplacementXz
