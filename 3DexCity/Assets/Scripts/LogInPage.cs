@@ -4,7 +4,7 @@ using Sfs2X;
 using Sfs2X.Util;
 using Sfs2X.Core;
 using Sfs2X.Requests;
-
+using UnityEditor;
 
 public class LogInPage : MonoBehaviour
 {
@@ -47,8 +47,8 @@ public class LogInPage : MonoBehaviour
     {
         enableInterface(true);
         TextMessage.text = "";
-        UserName.text="";
-        Password.text="";
+        UserName.text = "";
+        Password.text = "";
     }
 
     // Update is called once per frame
@@ -74,17 +74,17 @@ public class LogInPage : MonoBehaviour
         {  // Enable interface
             enableInterface(false);
 
-            #if UNITY_WEBGL
+#if UNITY_WEBGL
             {
              sfs = new SmartFox(UseWebSocket.WS);
              ServerPort = defaultWsPort;
             }
-            #else
+#else
             {
                 sfs = new SmartFox();
                 ServerPort = defaultTcpPort;
             }
-            #endif
+#endif
 
             sfs.ThreadSafeMode = true;
             sfs.AddEventListener(SFSEvent.CONNECTION, OnConnection);
@@ -105,7 +105,7 @@ public class LogInPage : MonoBehaviour
         if (sfs != null && sfs.IsConnected)
         {
             sfs.Disconnect();
-           
+
         }
         logount.gameObject.SetActive(false);
         Home.gameObject.SetActive(true);
@@ -141,7 +141,9 @@ public class LogInPage : MonoBehaviour
     private void OnLoginError(BaseEvent evt)
     {    // Show error message
         string message = (string)evt.Params["errorMessage"];
-        TextMessage.text = "Login failed: " + message;
+        string msg = "Login failed: " + message;
+        TextMessage.text = msg;
+
         Debug.Log("Login failed: " + message);
         if (message == "Your account has not been activated yet!")
         {
@@ -151,15 +153,17 @@ public class LogInPage : MonoBehaviour
             enableInterface(true);
 
             Login.gameObject.SetActive(false);
-                ActivateAccount.gameObject.SetActive(true);
-            
-        }
-        else { 
-        // Disconnect
-        sfs.Disconnect();
+            ActivateAccount.gameObject.SetActive(true);
 
-        // Remove SFS2X listeners and re-enable interface
-        reset();
+        }
+        else
+        {
+            // Disconnect
+            EditorUtility.DisplayDialog("Waring Message", "         Wrong password / username", "ok");
+            sfs.Disconnect();
+
+            // Remove SFS2X listeners and re-enable interface
+            reset();
         }
     }
 
@@ -189,7 +193,7 @@ public class LogInPage : MonoBehaviour
     {
         Debug.Log("Logged In: " + evt.Params["user"]);
         int AdminIndex = username.IndexOf("n");
-        string admin = username.Substring(0, AdminIndex+1);
+        string admin = username.Substring(0, AdminIndex + 1);
         if (admin.Equals("Admin"))
             AdminView.gameObject.SetActive(true);
         else
