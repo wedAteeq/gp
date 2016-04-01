@@ -73,17 +73,17 @@ public class SendAcctivationEmail : MonoBehaviour
             email = AdminEmail.text;
         }
 
-         #if UNITY_WEBGL
+#if UNITY_WEBGL
             {
              sfs = new SmartFox(UseWebSocket.WS);
              ServerPort = defaultWsPort;
             }
-         #else
+#else
         {
             sfs = new SmartFox();
             ServerPort = defaultTcpPort;
         }
-        #endif
+#endif
         sfs.ThreadSafeMode = true;
 
         sfs.AddEventListener(SFSEvent.CONNECTION, OnConnection);
@@ -137,16 +137,6 @@ public class SendAcctivationEmail : MonoBehaviour
 
             }
         }
-        else if (room == 1)
-        {
-            string result = objIn.GetUtfString("CreateRoomResult");
-
-            if (result == "Successful")
-                Debug.Log("Successful");
-            else
-                Debug.Log("error");
-            room++;
-        }
 
     }
 
@@ -192,22 +182,7 @@ public class SendAcctivationEmail : MonoBehaviour
         objOut.PutUtfString("email", email);
 
         sfs.Send(new ExtensionRequest(CMD_ActivateEmail, objOut));
-       
-        if (MemberActivateRoom.isOn == true )
-        {
-            room = 1;
-            Debug.Log("1");
-            objOut = new SFSObject();
 
-            if (MemberAccountType.isOn==true)
-                Account = "private";
-            else
-                Account = "public";
-            SFSObject objOut2 = new SFSObject();
-            objOut2.PutUtfString("username", username);
-            objOut2.PutUtfString("accountType", Account);
-            sfs.Send(new ExtensionRequest("CreateRoom", objOut2));
-        }
     }
 
 
