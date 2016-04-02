@@ -191,7 +191,10 @@ public class manageMemberAccount : MonoBehaviour
 
 
             if (useraccountinfo.GetSFSObject(0).GetUtfString("hasRoom").Equals("Y"))
+            {
                 ActivateRoom.isOn = true;
+                ActivateRoom.enabled = false;
+            }
             else
                 ActivateRoom.isOn = false;
 

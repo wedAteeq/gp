@@ -36,6 +36,7 @@ public class MenueCode : MonoBehaviour {
     public Transform manageAdminAccount;
     public Transform Ncontent;
     public Transform Fcontent;
+    public Animator GirlAvatar;
 
 
     //public void LoadScene(string name){// to load the scene of the city
@@ -528,15 +529,22 @@ public class MenueCode : MonoBehaviour {
 			    addAdmin.gameObject.SetActive (false);
 			Account1.gameObject.SetActive (false);
 			Account2.gameObject.SetActive (false);
-		} 
 
-		else {
+        }
+
+        else {
 			addAdmin.gameObject.SetActive (clicked);
 			AdminView.gameObject.SetActive (true);
 		}
 	}//end
 
-	public void CancelCre(bool clicked)//from Admin view to add admin form
+    public void Tour(bool clicked)
+    {
+        HomePage.gameObject.SetActive(false);
+        GirlAvatar.gameObject.SetActive(true);
+
+    }
+    public void CancelCre(bool clicked)//from Admin view to add admin form
 	{ 
 		if (clicked == true) 
 

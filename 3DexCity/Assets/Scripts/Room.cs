@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 using UnityEditor;
-using UnityEngine;
 using Sfs2X;
 using Sfs2X.Requests;
 using Sfs2X.Entities.Data;
 
-public class Room : MonoBehaviour
+public class Room 
 {
 
    
@@ -14,10 +13,21 @@ public class Room : MonoBehaviour
     public Texture2D texture; //the picture itself
 
     private SmartFox sfs;
-
     private string userName, accountType;
+    private int RoomId;
     //Manage Room (Add/Delete/Like/Arrang contents) 
-
+    public Room()
+    {
+        RoomId = 0;
+        userName = "";
+        accountType = "";
+    }
+    public Room(int RoomID,string user, string accType)
+    {
+        RoomId= RoomID;
+        userName = user;
+        accountType = accType;
+    }
 
     void OnTriggerEnter(Collider other) // to know which fram will be affect 
 
@@ -70,6 +80,7 @@ public class Room : MonoBehaviour
         sfs = sfs2x;
 
         Debug.Log("in method ");
+        //getAllRooms(sfs);
         userName = user;
         accountType = account;
         ISFSObject objOut = new SFSObject();
@@ -88,6 +99,14 @@ public class Room : MonoBehaviour
         ISFSObject objOut = new SFSObject();
         objOut.PutUtfString("username", userName);
         sfs.Send(new ExtensionRequest("DeleteRoom", objOut));
+    }
+
+    public void getAllRooms(SmartFox sfs2x)
+    {
+        sfs = sfs2x;
+        Debug.Log("in method ");
+        ISFSObject objOut = new SFSObject();
+        sfs.Send(new ExtensionRequest("GetRooms", objOut));
     }
 }
 

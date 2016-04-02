@@ -5,6 +5,7 @@ using Sfs2X.Util;
 using Sfs2X.Core;
 using Sfs2X.Requests;
 using UnityEditor;
+using Sfs2X.Entities.Data;
 
 public class LogInPage : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class LogInPage : MonoBehaviour
     private SmartFox sfs;
     private string username;
     private string password;
+    private int retAvatar = 0;
+    private int retRooms = 0;
 
     //----------------------------------------------------------
     // UI elements
@@ -34,7 +37,8 @@ public class LogInPage : MonoBehaviour
     public Transform AdminView;
     public Transform Home;
     public Transform logount;
-
+    public Animator BoyAvatar;
+    public Animator GirlAvatar;
 
     // string CMD_ActivateAccount="$SignUp.Activate";
 
@@ -45,6 +49,11 @@ public class LogInPage : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        //BoyAvatar = GetComponent<Animator>();
+        //GirlAvatar = GetComponent<Animator>();
+        //BoyAvatar.gameObject.SetActive(false);
+        //GirlAvatar.gameObject.SetActive(false);
+
         enableInterface(true);
         TextMessage.text = "";
         UserName.text = "";
@@ -91,6 +100,7 @@ public class LogInPage : MonoBehaviour
             sfs.AddEventListener(SFSEvent.CONNECTION_LOST, OnConnectionLost);
             sfs.AddEventListener(SFSEvent.LOGIN, OnLogin);
             sfs.AddEventListener(SFSEvent.LOGIN_ERROR, OnLoginError);
+            sfs.AddEventListener(SFSEvent.EXTENSION_RESPONSE, OnExtensionResponse);
             sfs.Connect(ServerIP, ServerPort);
         }
 
@@ -111,6 +121,40 @@ public class LogInPage : MonoBehaviour
         Home.gameObject.SetActive(true);
         AdminView.gameObject.SetActive(false);
         MemberView.gameObject.SetActive(false);
+    }
+
+    private void OnExtensionResponse(BaseEvent evt)
+    {
+        string avt;
+        ISFSObject objIn = (SFSObject)evt.Params["params"];
+        if (retAvatar == 1)
+        {
+
+            ISFSArray useraccountinfo = objIn.GetSFSArray("Avtar");
+            avt = useraccountinfo.GetSFSObject(0).GetUtfString("avatar");
+
+            if (avt == "M" || avt == "A")
+                BoyAvatar.gameObject.SetActive( true);
+            else
+                GirlAvatar.gameObject.SetActive(true);
+
+            Debug.Log("Avatar: "+avt);
+            retAvatar = 0;
+        }
+     else if (retRooms == 1)
+        {
+            ISFSArray Rooms = objIn.GetSFSArray("Rooms");
+            Debug.Log("Room 0: " + Rooms.GetSFSObject(0).GetUtfString("username"));
+            int length = Rooms.Size();
+            Room [] room = new Room[length];
+            for (int i=1;i<= length; i++)
+            {
+                room[i-1] = new Room(i, Rooms.GetSFSObject(i-1).GetUtfString("username"),Rooms.GetSFSObject(i - 1).GetUtfString("type"));
+            }
+
+        Transverser.Rooms = room;
+            retRooms = 0;
+        }
     }
 
     private void reset()
@@ -200,6 +244,15 @@ public class LogInPage : MonoBehaviour
             MemberView.gameObject.SetActive(true);
 
         Login.gameObject.SetActive(false);
+
+        AAvatar avt = new AAvatar();
+        avt.getAvatarTye(sfs, username);
+        retAvatar++;
+
+        Room room = new Room();
+        room.getAllRooms(sfs);
+        retRooms++;
+
     }
 
     private void enableInterface(bool enable)

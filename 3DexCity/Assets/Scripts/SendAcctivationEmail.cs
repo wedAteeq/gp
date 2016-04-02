@@ -8,6 +8,7 @@ using Sfs2X.Logging;
 using UnityEngine.UI;
 using System;
 using Sfs2X.Util;
+using UnityEditor;
 
 public class SendAcctivationEmail : MonoBehaviour
 {
@@ -39,6 +40,7 @@ public class SendAcctivationEmail : MonoBehaviour
     public Transform welcome;
     public Transform Login;
     public Transform AdminView;
+    public Transform CreteAccount;
 
     string CMD_ActivateEmail = "$SignUp.ResendEmail";
 
@@ -134,6 +136,15 @@ public class SendAcctivationEmail : MonoBehaviour
                 message = objIn.GetUtfString("errorMessage");
                 message = "Resend Error: " + message;
                 Debug.Log(message);
+                EditorUtility.DisplayDialog("Waring Message", "       The account did not created, since "+ message, "ok");
+                string user = MemberUserName.text;
+
+                int AdminIndex = user.IndexOf("n");
+                string admin = user.Substring(0, AdminIndex + 1);
+                if (admin.Equals("Admin"))
+                    AdminView.gameObject.SetActive(true);
+                else
+                    Login.gameObject.SetActive(true);
 
             }
         }

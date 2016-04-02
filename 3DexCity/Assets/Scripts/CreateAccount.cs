@@ -76,7 +76,6 @@ public class CreateAccount : MonoBehaviour
     public void OnCreateAccountButtonClicked()
     {
         int usernameSpace, firstnameSpace, lastnameSpace;
-        Error = 0;
         username = UserName.text;
         usernameSpace = username.IndexOf(" ");
         password = Password.text;
@@ -201,20 +200,36 @@ public class CreateAccount : MonoBehaviour
                 Debug.Log(message);
                 TextMessage.text = message;
 
+
+                
+                
             }
             else
             {
-                Error++;
+                Error=1;
                 message = objIn.GetUtfString("errorMessage");
                 message = "Signup Error: " + message;
                 EditorUtility.DisplayDialog("Waring Message", "         username is tacken", "ok");
-
                 Debug.Log(message);
                 TextMessage.text = message;
                 reset();
             }
         }
-        else
+        /*else if (Error == 0)
+        {
+            if (Act_Room == "Y")
+            {
+                Debug.Log("activate room");
+                Room room = new Room();
+                room.CreateRoom(sfs, username, Account_T);
+            }
+            Debug.Log(Error);
+           
+            
+                createAccount.gameObject.SetActive(false);
+                Result.gameObject.SetActive(true);
+        }*/
+        else 
         {
             string result = objIn.GetUtfString("CreateRoomResult");
 
@@ -228,7 +243,10 @@ public class CreateAccount : MonoBehaviour
                 Debug.Log("error");
 
             }
+            Error = 0;
         }
+
+        
 
     }
 
@@ -239,7 +257,7 @@ public class CreateAccount : MonoBehaviour
 
         // Remove SFS2X listeners and re-enable interface
         reset();
-
+ 
         // Show error message
         TextMessage.text = "Login failed: " + (string)evt.Params["errorMessage"];
         Debug.Log(TextMessage.text);
@@ -287,12 +305,12 @@ public class CreateAccount : MonoBehaviour
             Room room = new Room();
             room.CreateRoom(sfs, username, Account_T);
         }
+        Debug.Log(Error);
 
-        if (Error == 0)
-        {
-            createAccount.gameObject.SetActive(false);
-            Result.gameObject.SetActive(true);
-        }
+
+        createAccount.gameObject.SetActive(false);
+        Result.gameObject.SetActive(true);
+
 
     }
 

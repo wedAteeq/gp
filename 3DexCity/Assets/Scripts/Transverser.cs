@@ -11,4 +11,5 @@ public struct Transverser
     public static GameObject itemPrefab1Parent;
     public static GameObject itemPrefab2;
     public static GameObject itemPrefab2Parent;
+    public static  Room[]  Rooms;
 }
