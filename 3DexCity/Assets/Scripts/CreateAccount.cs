@@ -5,6 +5,7 @@ using Sfs2X.Requests;
 using Sfs2X.Entities.Data;
 using UnityEngine.UI;
 using Sfs2X.Util;
+using UnityEditor;
 
 public class CreateAccount : MonoBehaviour
 {
@@ -104,42 +105,51 @@ public class CreateAccount : MonoBehaviour
         else
             Avt = "F";
 
+        int AdminIndex = username.IndexOf("n");
+        string admin = username.Substring(0, AdminIndex + 1);
+
+
         if (requredFilled())
         {
             if (usernameSpace == -1 && firstnameSpace == -1 && lastnameSpace == -1)
             {
-                if (password == Conpassword)
+                if (!admin.Equals("Admin"))
                 {
-                    if (email.IndexOf("@") != -1)
-                    {   // Enable interface
-                        enableInterface(false);
-   
-                      #if UNITY_WEBGL
+                    if (password == Conpassword)
+                    {
+                        if (email.IndexOf("@") != -1)
+                        {   // Enable interface
+                            enableInterface(false);
+
+#if UNITY_WEBGL
                         {
                          sfs = new SmartFox(UseWebSocket.WS);
                          ServerPort = defaultWsPort;
                         }
-                      #else
-                        {
-                         sfs = new SmartFox();
-                         ServerPort = defaultTcpPort;
+#else
+                            {
+                                sfs = new SmartFox();
+                                ServerPort = defaultTcpPort;
+                            }
+#endif
+                            sfs.ThreadSafeMode = true;
+
+                            sfs.AddEventListener(SFSEvent.CONNECTION, OnConnection);
+                            sfs.AddEventListener(SFSEvent.CONNECTION_LOST, OnConnectionLost);
+                            sfs.AddEventListener(SFSEvent.LOGIN, OnLogin);
+                            sfs.AddEventListener(SFSEvent.LOGIN_ERROR, OnLoginError);
+                            sfs.AddEventListener(SFSEvent.EXTENSION_RESPONSE, OnExtensionResponse);
+
+                            sfs.Connect(ServerIP, ServerPort);
                         }
-                        #endif
-                        sfs.ThreadSafeMode = true;
-
-                        sfs.AddEventListener(SFSEvent.CONNECTION, OnConnection);
-                        sfs.AddEventListener(SFSEvent.CONNECTION_LOST, OnConnectionLost);
-                        sfs.AddEventListener(SFSEvent.LOGIN, OnLogin);
-                        sfs.AddEventListener(SFSEvent.LOGIN_ERROR, OnLoginError);
-                        sfs.AddEventListener(SFSEvent.EXTENSION_RESPONSE, OnExtensionResponse);
-
-                        sfs.Connect(ServerIP, ServerPort);
+                        else
+                            TextMessage.text = "Invalid email account";
                     }
                     else
-                        TextMessage.text = "Invalid email account";
+                        TextMessage.text = "The password and its confirm are not matching";
                 }
                 else
-                    TextMessage.text = "The password and its confirm are not matching";
+                    TextMessage.text = "The username should not start with \"Admin\" string";
             }
             else
                 TextMessage.text = "Username,firstname & lastname should not contains a space";
@@ -194,24 +204,30 @@ public class CreateAccount : MonoBehaviour
             }
             else
             {
-                Error = 1;
+                Error++;
                 message = objIn.GetUtfString("errorMessage");
                 message = "Signup Error: " + message;
+                EditorUtility.DisplayDialog("Waring Message", "         username is tacken", "ok");
+
                 Debug.Log(message);
                 TextMessage.text = message;
                 reset();
             }
         }
         else
-        if(room==1)
         {
             string result = objIn.GetUtfString("CreateRoomResult");
 
             if (result == "Successful")
+            {
                 Debug.Log("Successful");
+
+            }
             else
+            {
                 Debug.Log("error");
-            room++;
+
+            }
         }
 
     }
@@ -262,17 +278,14 @@ public class CreateAccount : MonoBehaviour
         objOut.PutUtfString("hasRoom", Act_Room);
         objOut.PutUtfString("accountType", Account_T);
         objOut.PutUtfString("avatar", Avt);
-  
+
         sfs.Send(new ExtensionRequest(CMD_Signup, objOut));
 
-        if (Act_Room=="Y")
+        if (Act_Room == "Y")
         {
-            Debug.Log("1");
-            room = 1;
-            SFSObject objOut2 = new SFSObject();
-            objOut2.PutUtfString("username", username);
-            objOut2.PutUtfString("accountType", Account_T);
-            sfs.Send(new ExtensionRequest("CreateRoom", objOut2));
+            Debug.Log("activate room");
+            Room room = new Room();
+            room.CreateRoom(sfs, username, Account_T);
         }
 
         if (Error == 0)

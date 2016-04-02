@@ -32,14 +32,17 @@ public class MenueCode : MonoBehaviour {
 	public Transform DeleteContentRoom;
 	public Transform  ArrangeContentRoom;
 	public Transform UpdateAccount;
+    public Transform viewFriendList;
+    public Transform manageAdminAccount;
+    public Transform Ncontent;
+    public Transform Fcontent;
 
 
+    //public void LoadScene(string name){// to load the scene of the city
+    //	Application.LoadLevel (name);}
 
-	//public void LoadScene(string name){// to load the scene of the city
-	//	Application.LoadLevel (name);}
 
-
-	public void login(bool clicked)//from home page to login form
+    public void login(bool clicked)//from home page to login form
 	{ 
 		if (clicked == true) {
 			Login.gameObject.SetActive (clicked);
@@ -301,7 +304,19 @@ public class MenueCode : MonoBehaviour {
 		}
 	}//end
 
-	public void Logout3(bool clicked)// logout form
+    public void veiwFriend(bool clicked)//from home page to login form
+    {
+        if (clicked == true)
+        {
+            //viewFriendList.gameObject.SetActive (clicked);
+            memberView.gameObject.SetActive(false);
+            Account1.gameObject.SetActive(false);
+
+        }
+
+    }//end
+
+    public void Logout3(bool clicked)// logout form
 	{ 
 		if (clicked == true) {
 			Logout.gameObject.SetActive (clicked);
@@ -325,22 +340,24 @@ public class MenueCode : MonoBehaviour {
 		}
 	}//end
 
-	public void notification(bool clicked)//from Member view to notification form
-	{ 
-		if (clicked == true) {
-			notifications.gameObject.SetActive (clicked);
-			memberView.gameObject.SetActive (false);
+    public void notification(bool clicked)//from Member view to notification form
+    {
+        if (clicked == true)
+        {
+            //notifications.gameObject.SetActive (clicked);
+            memberView.gameObject.SetActive(false);
+            Account1.gameObject.SetActive(false);
 
-		} 
-		else {
-			notifications.gameObject.SetActive (clicked);
-			memberView.gameObject.SetActive (true);
-		}
-	}//end
+        }
+        else
+        {
+            //notifications.gameObject.SetActive (clicked);
+            memberView.gameObject.SetActive(true);
+        }
+    }//end
 
 
-
-	public void notification3(bool clicked)//from Admin view to notification form
+    public void notification3(bool clicked)//from Admin view to notification form
 	{ 
 		if (clicked == true) {
 			notifications.gameObject.SetActive (clicked);
@@ -531,20 +548,30 @@ public class MenueCode : MonoBehaviour {
 	}//end
 
 
-	public void backToaccount1(bool clicked)//from Admin view to add admin form
-	{ 
-		if (clicked == true) 
+    public void backToaccount1(bool clicked)//from Admin view to add admin form
+    {
+        if (clicked == true)
+            if (Ncontent != null)
+                foreach (Transform child in Ncontent.transform)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+        if (Fcontent!= null)
+        foreach (Transform child in Fcontent.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
 
-		
-		
-		Account1.gameObject.SetActive (true);
-		ManegeMemberAccount.gameObject.SetActive (false);
-		UpdateAccount.gameObject.SetActive (false);
+        Account1.gameObject.SetActive(true);
+        ManegeMemberAccount.gameObject.SetActive(false);
+        UpdateAccount.gameObject.SetActive(false);
+        notifications.gameObject.SetActive(false);
+        viewFriendList.gameObject.SetActive(false);
+        notifications.gameObject.SetActive(false);
 
+    }//end
 
-	}//end
-
-	public void updateMember(bool clicked)//from Admin view to add admin form
+    public void updateMember(bool clicked)//from Admin view to add admin form
 	{ 
 		if (clicked == true) 
 
@@ -557,7 +584,21 @@ public class MenueCode : MonoBehaviour {
 
 	}//end
 
-	public void addcont(bool clicked)
+    public void backToaccount2(bool clicked)//from Admin view to add admin form
+    {
+        if (clicked == true)
+
+
+
+            Account2.gameObject.SetActive(true);
+
+        manageAdminAccount.gameObject.SetActive(false);
+        notifications.gameObject.SetActive(false);
+
+
+
+    }//end
+    public void addcont(bool clicked)
 	{ 
 		if (clicked == true) {
 

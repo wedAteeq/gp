@@ -79,7 +79,7 @@ public class AddAdmin : MonoBehaviour
         firstnameSpace = firstname.IndexOf(" ");
         lastname = LastName.text;
         lastnameSpace = lastname.IndexOf(" ");
-      
+
         if (requredFilled())
         {
             if (usernameSpace == -1 && firstnameSpace == -1 && lastnameSpace == -1)
@@ -91,17 +91,17 @@ public class AddAdmin : MonoBehaviour
                         enableInterface(false);
 
 
-                    #if UNITY_WEBGL
+#if UNITY_WEBGL
                        {
                         sfs = new SmartFox(UseWebSocket.WS);
                         ServerPort = defaultWsPort;
                        }
-                    #else
-                      {
-                        sfs = new SmartFox();
-                        ServerPort = defaultTcpPort;
-                      }
-                    #endif
+#else
+                        {
+                            sfs = new SmartFox();
+                            ServerPort = defaultTcpPort;
+                        }
+#endif
 
                         sfs.ThreadSafeMode = true;
 
@@ -217,6 +217,13 @@ public class AddAdmin : MonoBehaviour
         Debug.Log("Logged In: " + evt.Params["user"]);
 
         ISFSObject objOut = new SFSObject();
+        int AdminIndex = username.IndexOf("n");
+        string admin = username.Substring(0, AdminIndex + 1);
+
+        if (admin.Equals("admin"))
+            username = "A" + username.Substring(1);
+        else if (!admin.Equals("Admin"))
+            username = "Admin" + username;
 
         objOut.PutUtfString("username", username);
         objOut.PutUtfString("password", password);

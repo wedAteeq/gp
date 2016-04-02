@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEditor;
-using System.Text;
+using UnityEngine;
+using Sfs2X;
+using Sfs2X.Requests;
+using Sfs2X.Entities.Data;
 
 public class Room : MonoBehaviour
 {
@@ -11,6 +13,9 @@ public class Room : MonoBehaviour
     public string filePath = ""; //the path of the picture 
     public Texture2D texture; //the picture itself
 
+    private SmartFox sfs;
+
+    private string userName, accountType;
     //Manage Room (Add/Delete/Like/Arrang contents) 
 
 
@@ -52,5 +57,37 @@ public class Room : MonoBehaviour
     }
 
 
+    void Update()
+    {
+        // As Unity is not thread safe, we process the queued up callbacks on every frame
+        if (sfs != null)
+            sfs.ProcessEvents();
+    }
 
+
+    public void CreateRoom(SmartFox sfs2x, string user, string account)
+    {
+        sfs = sfs2x;
+
+        Debug.Log("in method ");
+        userName = user;
+        accountType = account;
+        ISFSObject objOut = new SFSObject();
+        objOut.PutUtfString("username", userName);
+        objOut.PutUtfString("accountType", accountType);
+        sfs.Send(new ExtensionRequest("CreateRoom", objOut));
+
+    }
+
+    public void DeleteRoom(SmartFox sfs2x, string user)
+    {
+        sfs = sfs2x;
+
+        Debug.Log("in method ");
+        userName = user;
+        ISFSObject objOut = new SFSObject();
+        objOut.PutUtfString("username", userName);
+        sfs.Send(new ExtensionRequest("DeleteRoom", objOut));
+    }
 }
+
