@@ -1,2 +1,188 @@
 Base path: C:/Program Files/Unity/Editor/Data
 Cmd: getPlatforms
+Cmd: preprocess
+  insize=9570 outsize=2424 ok=1
+Cmd: preprocess
+  insize=11629 outsize=758 ok=1
+Cmd: preprocess
+  insize=1305 outsize=357 ok=1
+Cmd: preprocess
+  insize=452 outsize=452 ok=1
+Cmd: preprocess
+  insize=8080 outsize=539 ok=1
+Cmd: preprocess
+  insize=1683 outsize=2323 ok=1
+Cmd: preprocess
+  insize=1286 outsize=485 ok=1
+Cmd: preprocess
+  insize=8933 outsize=810 ok=1
+Cmd: preprocess
+  insize=1759 outsize=370 ok=1
+Cmd: preprocess
+  insize=974 outsize=373 ok=1
+Cmd: preprocess
+  insize=1064 outsize=336 ok=1
+Cmd: preprocess
+  insize=4320 outsize=1045 ok=1
+Cmd: preprocess
+  insize=2058 outsize=509 ok=1
+Cmd: preprocess
+  insize=1359 outsize=431 ok=1
+Cmd: preprocess
+  insize=3722 outsize=745 ok=1
+Cmd: preprocess
+  insize=1518 outsize=2267 ok=1
+Cmd: preprocess
+  insize=1060 outsize=1583 ok=1
+Cmd: preprocess
+  insize=1296 outsize=429 ok=1
+Cmd: preprocess
+  insize=6831 outsize=844 ok=1
+Cmd: preprocess
+  insize=1235 outsize=333 ok=1
+Cmd: preprocess
+  insize=13263 outsize=2671 ok=1
+Cmd: preprocess
+  insize=1097 outsize=1052 ok=1
+Cmd: preprocess
+  insize=2754 outsize=810 ok=1
+Cmd: preprocess
+  insize=1027 outsize=322 ok=1
+Cmd: preprocess
+  insize=1443 outsize=406 ok=1
+Cmd: preprocess
+  insize=1502 outsize=370 ok=1
+Cmd: preprocess
+  insize=1761 outsize=749 ok=1
+Cmd: preprocess
+  insize=2379 outsize=1092 ok=1
+Cmd: preprocess
+  insize=1465 outsize=363 ok=1
+Cmd: preprocess
+  insize=1338 outsize=347 ok=1
+Cmd: preprocess
+  insize=2401 outsize=673 ok=1
+Cmd: preprocess
+  insize=1019 outsize=289 ok=1
+Cmd: preprocess
+  insize=829 outsize=338 ok=1
+Cmd: preprocess
+  insize=6423 outsize=1035 ok=1
+Cmd: preprocess
+  insize=2340 outsize=1021 ok=1
+Cmd: preprocess
+  insize=33465 outsize=288 ok=1
+Cmd: preprocess
+  insize=1282 outsize=279 ok=1
+Cmd: preprocess
+  insize=3754 outsize=743 ok=1
+Cmd: preprocess
+  insize=1059 outsize=268 ok=1
+Cmd: preprocess
+  insize=5588 outsize=1879 ok=1
+Cmd: preprocess
+  insize=11872 outsize=2000 ok=1
+Cmd: preprocess
+  insize=1097 outsize=378 ok=1
+Cmd: preprocess
+  insize=12408 outsize=2547 ok=1
+Cmd: preprocess
+  insize=6532 outsize=797 ok=1
+Cmd: preprocess
+  insize=2965 outsize=824 ok=1
+Cmd: preprocess
+  insize=11152 outsize=2599 ok=1
+Cmd: preprocess
+  insize=2593 outsize=1205 ok=1
+Cmd: preprocess
+  insize=14335 outsize=2763 ok=1
+Cmd: preprocess
+  insize=2048 outsize=516 ok=1
+Cmd: preprocess
+  insize=1423 outsize=670 ok=1
+Cmd: preprocess
+  insize=1890 outsize=547 ok=1
+Cmd: preprocess
+  insize=1764 outsize=320 ok=1
+Cmd: preprocess
+  insize=28296 outsize=4942 ok=1
+Cmd: preprocess
+  insize=4266 outsize=585 ok=1
+Cmd: preprocess
+  insize=1823 outsize=317 ok=1
+Cmd: preprocess
+  insize=1088 outsize=373 ok=1
+Cmd: preprocess
+  insize=1199 outsize=486 ok=1
+Cmd: preprocess
+  insize=777 outsize=284 ok=1
+Cmd: preprocess
+  insize=6084 outsize=913 ok=1
+Cmd: preprocess
+  insize=5846 outsize=801 ok=1
+Cmd: preprocess
+  insize=622 outsize=382 ok=1
+Cmd: preprocess
+  insize=6723 outsize=952 ok=1
+Cmd: preprocess
+  insize=1367 outsize=391 ok=1
+Cmd: preprocess
+  insize=33474 outsize=288 ok=1
+Cmd: preprocess
+  insize=5321 outsize=1789 ok=1
+Cmd: preprocess
+  insize=2379 outsize=1086 ok=1
+Cmd: preprocess
+  insize=6991 outsize=271 ok=1
+Cmd: preprocess
+  insize=4684 outsize=586 ok=1
+Cmd: preprocess
+  insize=5159 outsize=1147 ok=1
+Cmd: preprocess
+  insize=1373 outsize=404 ok=1
+Cmd: preprocess
+  insize=6008 outsize=1334 ok=1
+Cmd: preprocess
+  insize=770 outsize=305 ok=1
+Cmd: preprocess
+  insize=758 outsize=335 ok=1
+Cmd: preprocess
+  insize=4076 outsize=684 ok=1
+Cmd: preprocess
+  insize=926 outsize=319 ok=1
+Cmd: preprocess
+  insize=1406 outsize=315 ok=1
+Cmd: preprocess
+  insize=2266 outsize=1038 ok=1
+Cmd: preprocess
+  insize=6214 outsize=838 ok=1
+Cmd: preprocess
+  insize=1136 outsize=512 ok=1
+Cmd: preprocess
+  insize=1285 outsize=411 ok=1
+Cmd: preprocess
+  insize=616 outsize=277 ok=1
+Cmd: preprocess
+  insize=773 outsize=337 ok=1
+Cmd: preprocess
+  insize=5240 outsize=920 ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=445348 outsize=7917 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF LOD_FADE_CROSSFADE EFFECT_BUMP EFFECT_HUE_VARIATION GEOM_TYPE_BRANCH pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_TEXTURE_ALPHASPLIT_ALLOWED ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=445348 outsize=2173 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF LOD_FADE_CROSSFADE EFFECT_BUMP EFFECT_HUE_VARIATION GEOM_TYPE_BRANCH pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_TEXTURE_ALPHASPLIT_ALLOWED ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=445348 outsize=12445 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF LOD_FADE_CROSSFADE EFFECT_BUMP EFFECT_HUE_VARIATION GEOM_TYPE_LEAF pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_TEXTURE_ALPHASPLIT_ALLOWED ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=445348 outsize=2261 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF LOD_FADE_CROSSFADE EFFECT_BUMP EFFECT_HUE_VARIATION GEOM_TYPE_LEAF pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_TEXTURE_ALPHASPLIT_ALLOWED ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=445348 outsize=7541 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF EFFECT_BUMP EFFECT_HUE_VARIATION GEOM_TYPE_BRANCH pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_TEXTURE_ALPHASPLIT_ALLOWED ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=445348 outsize=1901 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF EFFECT_BUMP EFFECT_HUE_VARIATION GEOM_TYPE_BRANCH pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_TEXTURE_ALPHASPLIT_ALLOWED ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=445348 outsize=12069 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF EFFECT_BUMP EFFECT_HUE_VARIATION GEOM_TYPE_LEAF pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_TEXTURE_ALPHASPLIT_ALLOWED ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=445348 outsize=1989 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF EFFECT_BUMP EFFECT_HUE_VARIATION GEOM_TYPE_LEAF pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_TEXTURE_ALPHASPLIT_ALLOWED ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=7208 outsize=2225 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_TEXTURE_ALPHASPLIT_ALLOWED ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=7208 outsize=1021 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_TEXTURE_ALPHASPLIT_ALLOWED ok=1

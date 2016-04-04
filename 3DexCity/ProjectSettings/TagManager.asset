@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Frame
   - Cube
+  - Fire
+  - DisactiveGround
+  - ActiveGround
   layers:
   - Default
   - TransparentFX
