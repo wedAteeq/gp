@@ -30,8 +30,9 @@ public class CreateAccount : MonoBehaviour
     private string Account_T;
     private string Avt;
     private int Error = 0;
-    private int room = 0;
-
+    private int CreateRoom = 0;
+    private int Room_ID = 1;
+    private int updateAccount = 0;
 
     //----------------------------------------------------------
     // UI elements
@@ -50,7 +51,7 @@ public class CreateAccount : MonoBehaviour
     public Toggle MAvatar;
     public Transform Result;
     public Transform createAccount;
-
+    public int RoomsNum ;
     string CMD_Signup = "$SignUp.Submit";
 
 
@@ -58,6 +59,13 @@ public class CreateAccount : MonoBehaviour
     void Start()
     {
         TextMessage.text = "";
+        enableInterface(true);
+        UserName.text = "";
+        Password.text = "";
+        ConPassword.text = "";
+        Email.text = "";
+        FirstName.text = "";
+        LastName.text = "";
     }
 
     // Update is called once per frame
@@ -140,6 +148,15 @@ public class CreateAccount : MonoBehaviour
                             sfs.AddEventListener(SFSEvent.EXTENSION_RESPONSE, OnExtensionResponse);
 
                             sfs.Connect(ServerIP, ServerPort);
+
+                            enableInterface(true);
+                            UserName.text = "";
+                            Password.text = "";
+                            ConPassword.text = "";
+                            Email.text = "";
+                            FirstName.text = "";
+                            LastName.text = "";
+
                         }
                         else
                             TextMessage.text = "Invalid email account";
@@ -156,6 +173,7 @@ public class CreateAccount : MonoBehaviour
         else
             TextMessage.text = "Missing to fill required value";
 
+
     }//end create account
 
 
@@ -169,6 +187,12 @@ public class CreateAccount : MonoBehaviour
 
         // Enable interface
         enableInterface(true);
+        UserName.text = "";
+        Password.text = "";
+        ConPassword.text = "";
+        Email.text = "";
+        FirstName.text = "";
+        LastName.text = "";
     }
 
     private void OnConnectionLost(BaseEvent evt)
@@ -181,73 +205,124 @@ public class CreateAccount : MonoBehaviour
         if (reason != ClientDisconnectionReason.MANUAL)
         {
             // Show error message
-            TextMessage.text = "Connection was lost; reason is: " + reason;
+            Debug.Log("Connection was lost; reason is: " + reason);
         }
     }
 
     private void OnExtensionResponse(BaseEvent evt)
     {
+        Debug.Log("2");
         string cmd = (string)evt.Params["cmd"];
         ISFSObject objIn = (SFSObject)evt.Params["params"];
 
         string message;
         if (cmd == CMD_Signup)
         {
+            Debug.Log("3");
 
             if (objIn.ContainsKey("success"))
             {
                 message = "Signup Successful";
                 Debug.Log(message);
                 TextMessage.text = message;
-
-
-                
-                
             }
             else
             {
-                Error=1;
+                Error = 1;
                 message = objIn.GetUtfString("errorMessage");
                 message = "Signup Error: " + message;
-                EditorUtility.DisplayDialog("Waring Message", "         username is tacken", "ok");
+                EditorUtility.DisplayDialog("Waring Message", message, "ok");
                 Debug.Log(message);
                 TextMessage.text = message;
                 reset();
             }
         }
-        /*else if (Error == 0)
+        else if (Error == 0 && Act_Room == "Y" && CreateRoom == 0 )
         {
-            if (Act_Room == "Y")
+            ISFSArray Rooms = objIn.GetSFSArray("Rooms");
+            int length = Rooms.Size();
+            Debug.Log("length : " + length);
+
+            if (length < RoomsNum)
             {
+                int i;
+                if (length > 0)
+                    for (int j = 1; j <= length; j++)
+                    {
+                        for (i = 1; i <= length; i++)
+                        {
+                            if (j == int.Parse(Rooms.GetSFSObject(i - 1).GetUtfString("Room_ID")))
+                                break;
+                        }
+                        if (i == length)
+                        {
+                            Room_ID = j + 1;
+                            break;
+                        }
+                        else if (i > length)
+                        {
+                            Room_ID = j;
+                            break;
+                        }
+                    }
+ 
+                CreateRoom = 1;
                 Debug.Log("activate room");
                 Room room = new Room();
-                room.CreateRoom(sfs, username, Account_T);
+                room.CreateRoom(sfs, Room_ID, username, Account_T);
+
             }
-            Debug.Log(Error);
-           
-            
-                createAccount.gameObject.SetActive(false);
-                Result.gameObject.SetActive(true);
-        }*/
-        else 
+            else
+            {
+                EditorUtility.DisplayDialog("Waring Message", "Sorry, there is not any empty room.", "ok");
+                updateAccount = 1;
+                ISFSObject objOut = new SFSObject();
+                Act_Room = "N";
+                password = PasswordUtil.MD5Password(password);//to incrypt the password
+                objOut.PutUtfString("username", username);
+                objOut.PutUtfString("account", "member");
+                objOut.PutUtfString("password", password);
+                objOut.PutUtfString("email", email);
+                objOut.PutUtfString("firstName", firstname);
+                objOut.PutUtfString("lastName", lastname);
+                objOut.PutUtfString("biography", biography);
+                objOut.PutUtfString("hasRoom", Act_Room);
+                objOut.PutUtfString("accountType", Account_T);
+                objOut.PutUtfString("avatar", Avt);
+
+                sfs.Send(new ExtensionRequest("UpdateAccount", objOut));
+            }
+        }
+        else if (Error == 0 && Act_Room == "Y" && CreateRoom == 1 )
         {
+            CreateRoom = 0;
             string result = objIn.GetUtfString("CreateRoomResult");
 
             if (result == "Successful")
             {
                 Debug.Log("Successful");
-
+                EditorUtility.DisplayDialog("Waring Message", "Your room Id is "+Room_ID, "ok");
             }
             else
-            {
                 Debug.Log("error");
 
-            }
-            Error = 0;
+
+        }
+        else if (Error == 0 && updateAccount == 1)
+        {
+            string result = objIn.GetUtfString("UpdateResult");
+            if (result == "Successful")
+                Debug.Log("Successful");
+            else
+                Debug.Log("error");
+            updateAccount = 0;
         }
 
-        
-
+        if (Error == 0)
+        {
+            Result.gameObject.SetActive(true);
+            createAccount.gameObject.SetActive(false);
+        }
     }
 
     private void OnLoginError(BaseEvent evt)
@@ -257,10 +332,9 @@ public class CreateAccount : MonoBehaviour
 
         // Remove SFS2X listeners and re-enable interface
         reset();
- 
+
         // Show error message
-        TextMessage.text = "Login failed: " + (string)evt.Params["errorMessage"];
-        Debug.Log(TextMessage.text);
+        Debug.Log("Login failed: " + (string)evt.Params["errorMessage"]);
     }
 
     private void OnConnection(BaseEvent evt)
@@ -277,15 +351,18 @@ public class CreateAccount : MonoBehaviour
             reset();
 
             // Show error message
-            TextMessage.text = "Connection failed; is the server running at all?";
+            TextMessage.text = "Connection failed !";
         }
     }
 
     private void OnLogin(BaseEvent evt)
     {
         Debug.Log("Logged In: " + evt.Params["user"]);
+        Error = 0;
 
         ISFSObject objOut = new SFSObject();
+        Transverser.MemberUsername = username;
+        Transverser.MemberEmail = email;
 
         objOut.PutUtfString("username", username);
         objOut.PutUtfString("password", password);
@@ -294,25 +371,18 @@ public class CreateAccount : MonoBehaviour
         objOut.PutUtfString("lastName", lastname);
         objOut.PutUtfString("biography", biography);
         objOut.PutUtfString("hasRoom", Act_Room);
-        objOut.PutUtfString("accountType", Account_T);
+         objOut.PutUtfString("accountType", Account_T);
         objOut.PutUtfString("avatar", Avt);
 
         sfs.Send(new ExtensionRequest(CMD_Signup, objOut));
 
-        if (Act_Room == "Y")
-        {
-            Debug.Log("activate room");
-            Room room = new Room();
-            room.CreateRoom(sfs, username, Account_T);
-        }
-        Debug.Log(Error);
 
+        Debug.Log("1");
 
-        createAccount.gameObject.SetActive(false);
-        Result.gameObject.SetActive(true);
-
-
+        Room room = new Room();
+        room.getAllRooms(sfs);
     }
+
 
     private void enableInterface(bool enable)
     {

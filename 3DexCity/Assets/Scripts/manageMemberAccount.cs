@@ -6,6 +6,7 @@ using Sfs2X.Core;
 using Sfs2X.Requests;
 using System;
 using Sfs2X.Entities.Data;
+using UnityEditor;
 
 public class manageMemberAccount : MonoBehaviour
 {
@@ -41,13 +42,16 @@ public class manageMemberAccount : MonoBehaviour
     public Toggle AccountType;
     public Toggle FAvatar;
     public Toggle MAvatar;
+    public Animator BoyAvatar;
+    public Animator GirlAvatar;
+    public int RoomsNum;
 
     private int viewStatus = 0;
     private int deleteStatus = 0;
     private int updateStatus = 0;
     private int CreateRoom = 0;
     private int DeleteRoom = 0;
-
+     private int Room_ID = 1;
     private string pass;
     private string previousHasRoom;
 
@@ -120,7 +124,7 @@ public class manageMemberAccount : MonoBehaviour
             reset();
 
             // Show error message
-            TextMessage.text = "Connection failed; is the server running at all?";
+            TextMessage.text = "Connection Failed!";
         }
     }
 
@@ -157,7 +161,7 @@ public class manageMemberAccount : MonoBehaviour
     private void OnLoginError(BaseEvent evt)
     {    // Show error message
         string message = (string)evt.Params["errorMessage"];
-        TextMessage.text = "Login failed: " + message;
+       // TextMessage.text = "Login failed: " + message;
         Debug.Log("Login failed: " + message);
 
         // Disconnect
@@ -193,7 +197,7 @@ public class manageMemberAccount : MonoBehaviour
             if (useraccountinfo.GetSFSObject(0).GetUtfString("hasRoom").Equals("Y"))
             {
                 ActivateRoom.isOn = true;
-                ActivateRoom.enabled = false;
+               // ActivateRoom.enabled = false;
             }
             else
                 ActivateRoom.isOn = false;
@@ -206,9 +210,16 @@ public class manageMemberAccount : MonoBehaviour
                 AccountType.isOn = false;
 
             if (useraccountinfo.GetSFSObject(0).GetUtfString("avatar").Equals("F"))
+            {
                 FAvatar.isOn = true;
+                MAvatar.isOn = false;
+            }
+
             else
+            {
                 MAvatar.isOn = true;
+                FAvatar.isOn = false;
+            }
 
             Email.interactable = false;
             View_username.interactable = false;
@@ -222,14 +233,16 @@ public class manageMemberAccount : MonoBehaviour
             if (result == "Successful")
             {
                 Debug.Log("Successful");
-                TextMessage.text = "Your account deleted successfully";
+                //TextMessage.text = "Your account deleted successfully";
+                EditorUtility.DisplayDialog("Waring Message", "         Your account deleted successfully", "ok");
                 Home.gameObject.SetActive(true);
                 Delete.gameObject.SetActive(false);
             }
             else
             {
                 Debug.Log("error");
-                TextMessage.text = "Your account has not been deleted";
+                //TextMessage.text = "Your account has not been deleted";
+                EditorUtility.DisplayDialog("Waring Message", "         Your account has not been deleted", "ok");
 
             }
             deleteStatus = 0;
@@ -237,18 +250,26 @@ public class manageMemberAccount : MonoBehaviour
         else
              if (updateStatus == 1)
         {
-            string result;
+            string result,msg="";
             if (CreateRoom == 1)
+            {
                 result = objIn.GetUtfString("CreateRoomResult");
+                msg = "Your room has been created and it's id is "+ Room_ID;
+            }
             else if (DeleteRoom == 1)
+            {
                 result = objIn.GetUtfString("DeleteRoom");
+                msg = "Your room has been deleted ";
+            }
             else
                 result = objIn.GetUtfString("UpdateResult");
+             
 
             if (result == "Successful")
             {
                 Debug.Log("Successful");
-                // TextMessage.text = "Your account updated successfully";
+                if (msg != "")
+            EditorUtility.DisplayDialog("Message", "               "+msg, "ok");
 
             }
             else
@@ -314,6 +335,16 @@ public class manageMemberAccount : MonoBehaviour
                         else
                             password = PasswordUtil.MD5Password(View_Password.text);
 
+                        Room[] rooms = Transverser.Rooms;
+                        int length = rooms.Length;
+                        Debug.Log("length : " + length);
+
+                        if (length == RoomsNum && previousHasRoom == "N" && Act_Room == "Y")
+                        {
+                            Act_Room = "N";
+                            EditorUtility.DisplayDialog("Waring Message", "Sorry, there is not any empty room.", "ok");
+                        }
+
                         objOut.PutUtfString("username", username);
                         objOut.PutUtfString("account", "member");
                         objOut.PutUtfString("password", password);
@@ -326,14 +357,49 @@ public class manageMemberAccount : MonoBehaviour
 
                         sfs.Send(new ExtensionRequest("UpdateAccount", objOut));
 
-                        if (previousHasRoom == "N" && Act_Room == "Y")
+                        if (Avt == "M")
+                        {
+                            BoyAvatar.gameObject.SetActive(true);
+                            GirlAvatar.gameObject.SetActive(false);
+                        }
+                        else
+                        {
+                            BoyAvatar.gameObject.SetActive(false);
+                            GirlAvatar.gameObject.SetActive(true);
+                        }
+
+                        if (length < RoomsNum && previousHasRoom == "N" && Act_Room == "Y")
                         {
                             CreateRoom = 1;
                             Debug.Log("activate room");
-                            Room room = new Room();
-                            room.CreateRoom(sfs, username, Account_T);
-                        }
+  
+                                int i;
+                                if (length > 0)
+                                    for (int j = 1; j <= length; j++)
+                                    {
+                                        for (i = 1; i <= length; i++)
+                                        {
+                                            if (j == rooms[i-1].getRoomId())
+                                                break;
+                                        }
+                                        if (i == length)
+                                        {
+                                            Room_ID = j + 1;
+                                            break;
+                                        }
+                                        else if (i > length)
+                                        {
+                                            Room_ID = j;
+                                            break;
+                                        }
+                                    }
 
+                                CreateRoom = 1;
+                                Debug.Log("activate room");
+                                Room room = new Room();
+                                room.CreateRoom(sfs, Room_ID, username, Account_T);
+
+                        }
                         else if (previousHasRoom == "Y" && Act_Room == "N")
                         {
                             DeleteRoom = 1;

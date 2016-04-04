@@ -145,7 +145,6 @@ public class ScrollableNotificationsPanel : MonoBehaviour {
     public void OnDecisionButtonClicked()
     {
         string name = EventSystem.current.currentSelectedGameObject.name;
-
         int SpaceIndex = name.IndexOf(" ");
         string DecisionButtonName = name.Substring(0, SpaceIndex);
         DecisionButtonName = DecisionButtonName.ToLower();

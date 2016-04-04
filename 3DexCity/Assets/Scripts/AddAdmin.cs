@@ -5,6 +5,7 @@ using Sfs2X.Entities.Data;
 using UnityEngine.UI;
 using Sfs2X.Util;
 using UnityEngine;
+using UnityEditor;
 
 public class AddAdmin : MonoBehaviour
 {
@@ -112,7 +113,15 @@ public class AddAdmin : MonoBehaviour
                         sfs.AddEventListener(SFSEvent.EXTENSION_RESPONSE, OnExtensionResponse);
 
                         sfs.Connect(ServerIP, ServerPort);
-                    }
+
+                       UserName.text="";
+                          Password.text="";
+                        ConPassword.text="";
+                        Email.text = "";
+                        Biography.text = "";
+                        FirstName.text = "";
+                        LastName.text = "";
+                     }
                     else
                         TextMessage.text = "Invalid email account";
                 }
@@ -150,7 +159,7 @@ public class AddAdmin : MonoBehaviour
         if (reason != ClientDisconnectionReason.MANUAL)
         {
             // Show error message
-            TextMessage.text = "Connection was lost; reason is: " + reason;
+            Debug.Log("Connection was lost; reason is: " + reason);
         }
     }
 
@@ -161,8 +170,8 @@ public class AddAdmin : MonoBehaviour
         string message;
         if (cmd == CMD_Signup)
         {
-
             if (objIn.ContainsKey("success"))
+
             {
                 message = "Signup Successful";
                 Debug.Log(message);
@@ -175,10 +184,12 @@ public class AddAdmin : MonoBehaviour
                 message = objIn.GetUtfString("errorMessage");
                 message = "Signup Error: " + message;
                 Debug.Log(message);
+				EditorUtility.DisplayDialog("Waring Message", message, "ok");
                 TextMessage.text = message;
                 reset();
             }
         }
+      
     }
 
     private void OnLoginError(BaseEvent evt)
@@ -190,8 +201,8 @@ public class AddAdmin : MonoBehaviour
         reset();
 
         // Show error message
-        TextMessage.text = "Login failed: " + (string)evt.Params["errorMessage"];
-        Debug.Log(TextMessage.text);
+        Debug.Log("Login failed: " + (string)evt.Params["errorMessage"]);
+
     }
 
     private void OnConnection(BaseEvent evt)
@@ -234,7 +245,9 @@ public class AddAdmin : MonoBehaviour
         objOut.PutUtfString("isAdmin", "Y");
 
         sfs.Send(new ExtensionRequest(CMD_Signup, objOut));
+        // sfs.Send(new ExtensionRequest("", objOut));
 
+        //OnExtensionResponse( evt);
         if (Error == 0)
         {
             createAccount.gameObject.SetActive(false);

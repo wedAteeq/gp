@@ -112,7 +112,7 @@ public class ForgetPassword : MonoBehaviour
         if (reason != ClientDisconnectionReason.MANUAL)
         {
             // Show error message
-            TextMessage.text = "Connection was lost; reason is: " + reason;
+            Debug.Log("Connection was lost; reason is: " + reason);
         }
     }
 
@@ -156,8 +156,8 @@ public class ForgetPassword : MonoBehaviour
         reset();
 
         // Show error message
-        TextMessage.text = "Login failed: " + (string)evt.Params["errorMessage"];
-        Debug.Log(TextMessage.text);
+        Debug.Log("Login failed: " + (string)evt.Params["errorMessage"]);
+
     }
 
     private void OnConnection(BaseEvent evt)
@@ -174,7 +174,7 @@ public class ForgetPassword : MonoBehaviour
             reset();
 
             // Show error message
-            TextMessage.text = "Connection failed; is the server running at all?";
+            TextMessage.text = "Connection Failed!";
         }
     }
 

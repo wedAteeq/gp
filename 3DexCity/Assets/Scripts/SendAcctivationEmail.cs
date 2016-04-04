@@ -40,8 +40,7 @@ public class SendAcctivationEmail : MonoBehaviour
     public Transform welcome;
     public Transform Login;
     public Transform AdminView;
-    public Transform CreteAccount;
-
+ 
     string CMD_ActivateEmail = "$SignUp.ResendEmail";
 
     // Use this for initialization
@@ -64,15 +63,16 @@ public class SendAcctivationEmail : MonoBehaviour
 
     public void OnOKButtonClicked()
     {
-        if (MemberUserName.text != "")
-        {
-            username = MemberUserName.text;
-            email = MemberEmail.text;
-        }
-        else
+        if (AdminUserName.text != "")
         {
             username = AdminUserName.text;
             email = AdminEmail.text;
+        }
+        else
+        {
+
+            username = Transverser.MemberUsername;// MemberUserName.text;
+            email = Transverser.MemberEmail;// MemberEmail.text;
         }
 
 #if UNITY_WEBGL
@@ -82,6 +82,8 @@ public class SendAcctivationEmail : MonoBehaviour
             }
 #else
         {
+
+
             sfs = new SmartFox();
             ServerPort = defaultTcpPort;
         }
@@ -124,29 +126,35 @@ public class SendAcctivationEmail : MonoBehaviour
             {
                 message = "The activation re-email send successfyl";
                 Debug.Log(message);
-                if (MemberUserName.text != "")
-                    Login.gameObject.SetActive(true);
-                else
-                    AdminView.gameObject.SetActive(true);
+                //if (AdminUserName.text != "")
+                  //  AdminView.gameObject.SetActive(true);
+              //  else
+                   // Login.gameObject.SetActive(true);
 
-                welcome.gameObject.SetActive(false);
             }
             else
             {
                 message = objIn.GetUtfString("errorMessage");
-                message = "Resend Error: " + message;
+                //message = "Resend Error: " + message;
                 Debug.Log(message);
-                EditorUtility.DisplayDialog("Waring Message", "       The account did not created, since "+ message, "ok");
-                string user = MemberUserName.text;
-
-                int AdminIndex = user.IndexOf("n");
-                string admin = user.Substring(0, AdminIndex + 1);
-                if (admin.Equals("Admin"))
-                    AdminView.gameObject.SetActive(true);
-                else
-                    Login.gameObject.SetActive(true);
+                EditorUtility.DisplayDialog("Waring Message","The activation email did not send because "+ message, "ok");
+                //string user = Transverser.MemberUsername;
+               // if (AdminUserName.text!="")
+               // int AdminIndex = user.IndexOf("n");
+               // string admin = user.Substring(0, AdminIndex + 1);
+               // if (admin.Equals("Admin"))
+                 //   AdminView.gameObject.SetActive(true);
+              //  else
+                    //Login.gameObject.SetActive(true);
 
             }
+            if (AdminUserName.text != "")
+              AdminView.gameObject.SetActive(true);
+            else
+             Login.gameObject.SetActive(true);
+
+            welcome.gameObject.SetActive(false);
+
         }
 
     }
@@ -185,8 +193,7 @@ public class SendAcctivationEmail : MonoBehaviour
 
     private void OnLogin(BaseEvent evt)
     {
-        string Account;
-        Debug.Log("Logged In: " + evt.Params["user"]);
+         Debug.Log("Logged In: " + evt.Params["user"]);
 
         ISFSObject objOut = new SFSObject();
         objOut.PutUtfString("username", username);

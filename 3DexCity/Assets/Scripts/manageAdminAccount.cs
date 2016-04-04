@@ -5,6 +5,7 @@ using Sfs2X.Requests;
 using Sfs2X.Entities.Data;
 using Sfs2X.Util;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class manageAdminAccount : MonoBehaviour
 {
@@ -111,7 +112,7 @@ public class manageAdminAccount : MonoBehaviour
             reset();
 
             // Show error message
-            TextMessage.text = "Connection failed; is the server running at all?";
+            TextMessage.text = "Connection failed!";
         }
     }
 
@@ -148,7 +149,7 @@ public class manageAdminAccount : MonoBehaviour
     private void OnLoginError(BaseEvent evt)
     {    // Show error message
         string message = (string)evt.Params["errorMessage"];
-        TextMessage.text = "Login failed: " + message;
+       // TextMessage.text = "Login failed: " + message;
         Debug.Log("Login failed: " + message);
 
         // Disconnect
@@ -194,14 +195,16 @@ public class manageAdminAccount : MonoBehaviour
             if (result == "Successful")
             {
                 Debug.Log("Successful");
-                TextMessage.text = "Your account deleted successfully";
+                //TextMessage.text = "Your account deleted successfully";
+                EditorUtility.DisplayDialog("Waring Message", "         Your account deleted successfully", "ok");
                 Home.gameObject.SetActive(true);
                 Delete.gameObject.SetActive(false);
             }
             else
             {
                 Debug.Log("error");
-                TextMessage.text = "Your account has not been deleted";
+                // TextMessage.text = "Your account has not been deleted";
+                EditorUtility.DisplayDialog("Waring Message", "         Your account has not been deleted", "ok");
 
             }
             deleteStatus = 0;

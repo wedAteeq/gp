@@ -6,6 +6,7 @@ using Sfs2X.Core;
 using Sfs2X.Requests;
 using System;
 using Sfs2X.Entities.Data;
+using UnityEditor;
 
 public class DeleteAccount : MonoBehaviour
 {
@@ -59,7 +60,7 @@ public class DeleteAccount : MonoBehaviour
         if (username == "" || username == " ")
             TextMessage.text = "Missing to fill required value";
         else
-        if (admin.Equals("Admin")|| admin.Equals("admin"))
+        if (admin.Equals("Admin"))
             TextMessage.text = "You are not allow to delete admin";
         else
         {  // Enable interface
@@ -86,6 +87,8 @@ public class DeleteAccount : MonoBehaviour
             sfs.AddEventListener(SFSEvent.EXTENSION_RESPONSE, OnExtensionResponse);
 
             sfs.Connect(ServerIP, ServerPort);
+            UserName.text = "";
+            enableInterface(true);
 
         }
 
@@ -107,7 +110,7 @@ public class DeleteAccount : MonoBehaviour
             reset();
 
             // Show error message
-            TextMessage.text = "Connection failed; is the server running at all?";
+            TextMessage.text = "Connection failed!";
         }
     }
 
@@ -144,7 +147,7 @@ public class DeleteAccount : MonoBehaviour
     private void OnLoginError(BaseEvent evt)
     {    // Show error message
         string message = (string)evt.Params["errorMessage"];
-        TextMessage.text = "Login failed: " + message;
+        //TextMessage.text = "Login failed: " + message;
         Debug.Log("Login failed: " + message);
 
         // Disconnect
@@ -165,17 +168,20 @@ public class DeleteAccount : MonoBehaviour
             if (result == "Successful")
             {
                 Debug.Log("Successful");
-                TextMessage.text = "the account deleted successfully";
-                ConfirmDelete.gameObject.SetActive(true);
+                //TextMessage.text = "the account deleted successfully";
+            //EditorUtility.DisplayDialog("Waring Message", "         The account deleted successfully", "ok");
+
+            ConfirmDelete.gameObject.SetActive(true);
                 Delete.gameObject.SetActive(false);
             }
             else
             {
                 Debug.Log("error");
-                TextMessage.text = "Your account has not been deleted";
+            //TextMessage.text = "Your account has not been deleted";
+            //EditorUtility.DisplayDialog("Waring Message", "         Your account has not been deleted", "ok");
 
-            }
-       
+        }
+
 
     }//end extension
 

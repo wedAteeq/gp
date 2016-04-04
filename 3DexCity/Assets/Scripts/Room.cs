@@ -15,6 +15,8 @@ public class Room
     private SmartFox sfs;
     private string userName, accountType;
     private int RoomId;
+
+    public int getRoomId() { return RoomId; }
     //Manage Room (Add/Delete/Like/Arrang contents) 
     public Room()
     {
@@ -75,15 +77,15 @@ public class Room
     }
 
 
-    public void CreateRoom(SmartFox sfs2x, string user, string account)
+    public void CreateRoom(SmartFox sfs2x, int Room_ID,string user, string account)
     {
         sfs = sfs2x;
 
         Debug.Log("in method ");
-        //getAllRooms(sfs);
         userName = user;
         accountType = account;
         ISFSObject objOut = new SFSObject();
+        objOut.PutUtfString("Room_ID", Room_ID+"");
         objOut.PutUtfString("username", userName);
         objOut.PutUtfString("accountType", accountType);
         sfs.Send(new ExtensionRequest("CreateRoom", objOut));
@@ -98,7 +100,7 @@ public class Room
         userName = user;
         ISFSObject objOut = new SFSObject();
         objOut.PutUtfString("username", userName);
-        sfs.Send(new ExtensionRequest("DeleteRoom", objOut));
+         sfs.Send(new ExtensionRequest("DeleteRoom", objOut));
     }
 
     public void getAllRooms(SmartFox sfs2x)

@@ -147,12 +147,17 @@ public class LogInPage : MonoBehaviour
             Debug.Log("Room 0: " + Rooms.GetSFSObject(0).GetUtfString("username"));
             int length = Rooms.Size();
             Room [] room = new Room[length];
-            for (int i=1;i<= length; i++)
+            for (int i=0;i< length; i++)
             {
-                room[i-1] = new Room(i, Rooms.GetSFSObject(i-1).GetUtfString("username"),Rooms.GetSFSObject(i - 1).GetUtfString("type"));
+                room[i] = new Room(int.Parse(Rooms.GetSFSObject(i).GetUtfString("Room_ID")), Rooms.GetSFSObject(i).GetUtfString("username"),Rooms.GetSFSObject(i).GetUtfString("type"));
+                if (Rooms.GetSFSObject(i).GetUtfString("username") == username)
+                {
+                    Transverser.MyRoomID = Rooms.GetSFSObject(i).GetUtfString("Room_ID");
+                    EditorUtility.DisplayDialog("Waring Message", "Your room Id is " + Transverser.MyRoomID, "ok");
+                }
             }
 
-        Transverser.Rooms = room;
+            Transverser.Rooms = room;
             retRooms = 0;
         }
     }
@@ -178,7 +183,7 @@ public class LogInPage : MonoBehaviour
         if (reason != ClientDisconnectionReason.MANUAL)
         {
             // Show error message
-            TextMessage.text = "Connection was lost; reason is: " + reason;
+            Debug.Log("Connection was lost; reason is: " + reason);
         }
     }//end
 
@@ -186,8 +191,7 @@ public class LogInPage : MonoBehaviour
     {    // Show error message
         string message = (string)evt.Params["errorMessage"];
         string msg = "Login failed: " + message;
-        TextMessage.text = msg;
-
+ 
         Debug.Log("Login failed: " + message);
         if (message == "Your account has not been activated yet!")
         {
@@ -229,7 +233,7 @@ public class LogInPage : MonoBehaviour
             reset();
 
             // Show error message
-            TextMessage.text = "Connection failed; is the server running at all?";
+            TextMessage.text = "Connection Failed!";
         }
     }
 
