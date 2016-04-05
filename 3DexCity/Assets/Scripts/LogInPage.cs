@@ -49,10 +49,14 @@ public class LogInPage : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+<<<<<<< HEAD
         //BoyAvatar = GetComponent<Animator>();
         //GirlAvatar = GetComponent<Animator>();
         //BoyAvatar.gameObject.SetActive(false);
         //GirlAvatar.gameObject.SetActive(false);
+=======
+ 
+>>>>>>> origin/change
 
         enableInterface(true);
         TextMessage.text = "";
@@ -153,7 +157,11 @@ public class LogInPage : MonoBehaviour
                 if (Rooms.GetSFSObject(i).GetUtfString("username") == username)
                 {
                     Transverser.MyRoomID = Rooms.GetSFSObject(i).GetUtfString("Room_ID");
+<<<<<<< HEAD
                     EditorUtility.DisplayDialog("Waring Message", "Your room Id is " + Transverser.MyRoomID, "ok");
+=======
+                     EditorUtility.DisplayDialog("Message", "Your room Id is " + Transverser.MyRoomID, "ok");
+>>>>>>> origin/change
                 }
             }
 

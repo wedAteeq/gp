@@ -25,7 +25,10 @@ public class ViewNotifications : MonoBehaviour {
     //----------------------------------------------------------
     // UI elements
     //----------------------------------------------------------
+<<<<<<< HEAD
     public InputField RoomID;
+=======
+>>>>>>> origin/change
     public Transform NotificationForm;
     public GameObject itemPrefab;
     public GameObject Parent;
@@ -56,7 +59,11 @@ public class ViewNotifications : MonoBehaviour {
     {
         Transverser.itemPrefab1 = itemPrefab;
         Transverser.itemPrefab1Parent = Parent;
+<<<<<<< HEAD
         Room_ID = "15";//UserName.text;
+=======
+        Room_ID = Transverser.MyRoomID;
+>>>>>>> origin/change
      
         #if UNITY_WEBGL
 		{

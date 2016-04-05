@@ -26,14 +26,22 @@ public class ViewFriends : MonoBehaviour {
     private string Room_ID;//user;
     private ISFSArray Friends;
     private int display = 0;
+<<<<<<< HEAD
 
+=======
+    private string user;
+>>>>>>> origin/change
     //----------------------------------------------------------
     // UI elements
     //----------------------------------------------------------
     public Transform friendsForm;
+<<<<<<< HEAD
  	public InputField RoomID;
     //public InputField username;
     public GameObject itemPrefab;
+=======
+     public GameObject itemPrefab;
+>>>>>>> origin/change
     public GameObject Parent;
     //----------------------------------------------------------
     // Unity calback methods
@@ -61,16 +69,25 @@ public class ViewFriends : MonoBehaviour {
 	{
         Transverser.itemPrefab2 = itemPrefab;
         Transverser.itemPrefab2Parent = Parent;
+<<<<<<< HEAD
 
         Room_ID = "15";
        // user = "mmmmmmmmm";// username.text;//from login
 
         #if UNITY_WEBGL
+=======
+        Room_ID = Transverser.MyRoomID;
+ #if UNITY_WEBGL
+>>>>>>> origin/change
 		{
 		sfs = new SmartFox(UseWebSocket.WS);
 		ServerPort = defaultWsPort;
 		}
+<<<<<<< HEAD
         #else
+=======
+#else
+>>>>>>> origin/change
         {
 			sfs = new SmartFox();
 			ServerPort = defaultTcpPort;
@@ -114,8 +131,13 @@ public class ViewFriends : MonoBehaviour {
 
  		ISFSObject objOut = new SFSObject();
 		objOut.PutUtfString("Room_ID", Room_ID);
+<<<<<<< HEAD
 		//objOut.PutUtfString ("username", user);
 		sfs.Send(new ExtensionRequest("ViewFriends", objOut));
+=======
+        objOut.PutUtfString("username", "");
+        sfs.Send(new ExtensionRequest("ViewFriends", objOut));
+>>>>>>> origin/change
 	}
 
 	private void OnConnectionLost(BaseEvent evt)

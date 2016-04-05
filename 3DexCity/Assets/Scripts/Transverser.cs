@@ -15,6 +15,10 @@ public struct Transverser
     public static  Room[]  Rooms;
     public static string MemberUsername;
     public static string MemberEmail;
+<<<<<<< HEAD
 
+=======
+    public static int enter=0;
+>>>>>>> origin/change
 
 }

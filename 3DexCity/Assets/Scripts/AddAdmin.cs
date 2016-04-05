@@ -27,7 +27,10 @@ public class AddAdmin : MonoBehaviour
     private string biography;
     private string firstname;
     private string lastname;
+<<<<<<< HEAD
     private int Error = 0;
+=======
+>>>>>>> origin/change
 
 
     //----------------------------------------------------------
@@ -37,13 +40,23 @@ public class AddAdmin : MonoBehaviour
     public InputField Password;
     public InputField ConPassword;
     public Text TextMessage;
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> origin/change
     public InputField Email;
     public InputField FirstName;
     public InputField LastName;
     public InputField Biography;
+<<<<<<< HEAD
     public Transform Result;
     public Transform createAccount;
 
+=======
+    public Transform SuccesResult;
+    public Transform createAccount;
+ 
+>>>>>>> origin/change
     string CMD_Signup = "$SignUp.Submit";
 
 
@@ -51,6 +64,17 @@ public class AddAdmin : MonoBehaviour
     void Start()
     {
         TextMessage.text = "";
+<<<<<<< HEAD
+=======
+        UserName.text = "";
+        Password.text = "";
+        ConPassword.text = "";
+        Email.text = "";
+        Biography.text = "";
+        FirstName.text = "";
+        LastName.text = "";
+        enableInterface(true);
+>>>>>>> origin/change
     }
 
     // Update is called once per frame
@@ -69,8 +93,12 @@ public class AddAdmin : MonoBehaviour
     public void OnCreateAccountButtonClicked()
     {
         int usernameSpace, firstnameSpace, lastnameSpace;
+<<<<<<< HEAD
         Error = 0;
         username = UserName.text;
+=======
+         username = UserName.text;
+>>>>>>> origin/change
         usernameSpace = username.IndexOf(" ");
         password = Password.text;
         Conpassword = ConPassword.text;
@@ -114,6 +142,7 @@ public class AddAdmin : MonoBehaviour
 
                         sfs.Connect(ServerIP, ServerPort);
 
+<<<<<<< HEAD
                        UserName.text="";
                           Password.text="";
                         ConPassword.text="";
@@ -122,6 +151,10 @@ public class AddAdmin : MonoBehaviour
                         FirstName.text = "";
                         LastName.text = "";
                      }
+=======
+                        enableInterface(true);
+                    }
+>>>>>>> origin/change
                     else
                         TextMessage.text = "Invalid email account";
                 }
@@ -165,6 +198,10 @@ public class AddAdmin : MonoBehaviour
 
     private void OnExtensionResponse(BaseEvent evt)
     {
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> origin/change
         string cmd = (string)evt.Params["cmd"];
         ISFSObject objIn = (SFSObject)evt.Params["params"];
         string message;
@@ -180,6 +217,7 @@ public class AddAdmin : MonoBehaviour
             }
             else
             {
+<<<<<<< HEAD
                 Error = 1;
                 message = objIn.GetUtfString("errorMessage");
                 message = "Signup Error: " + message;
@@ -190,6 +228,22 @@ public class AddAdmin : MonoBehaviour
             }
         }
       
+=======
+                message = objIn.GetUtfString("errorMessage");
+                message = "Adding Error: " + message;
+                TextMessage.text = message;
+                Debug.Log(message);
+                reset();
+                SuccesResult.gameObject.SetActive(false);
+                createAccount.gameObject.SetActive(true);
+
+                EditorUtility.DisplayDialog("Waring Message", message, "ok");
+ 
+             }
+        }
+       
+
+>>>>>>> origin/change
     }
 
     private void OnLoginError(BaseEvent evt)
@@ -248,12 +302,19 @@ public class AddAdmin : MonoBehaviour
         // sfs.Send(new ExtensionRequest("", objOut));
 
         //OnExtensionResponse( evt);
+<<<<<<< HEAD
         if (Error == 0)
         {
             createAccount.gameObject.SetActive(false);
             Result.gameObject.SetActive(true);
         }
 
+=======
+ 
+            createAccount.gameObject.SetActive(false);
+           SuccesResult.gameObject.SetActive(true);
+ 
+>>>>>>> origin/change
     }
 
     private void enableInterface(bool enable)

@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
+<<<<<<< HEAD
 using System.Collections;
+=======
+using UnityEngine.UI;
+>>>>>>> origin/change
 
 public class MenueCode : MonoBehaviour {
 	public Transform HomePage;
@@ -37,8 +41,29 @@ public class MenueCode : MonoBehaviour {
     public Transform Ncontent;
     public Transform Fcontent;
     public Animator GirlAvatar;
+<<<<<<< HEAD
 
 
+=======
+    public InputField UserName;
+    public InputField Password;
+
+    public InputField AdminUserName;
+    public InputField AdminPassword;
+    public InputField AdminConPassword;
+    public InputField AdminEmail;
+    public InputField AdminFirstName;
+    public InputField AdminLastName;
+    public InputField AdminBiography;
+
+    public InputField MemberUserName;
+    public InputField MemberPassword;
+    public InputField MemberConPassword;
+    public InputField MemberEmail;
+    public InputField MemberFirstName;
+    public InputField MemberLastName;
+    public InputField MemberBiography;
+>>>>>>> origin/change
     //public void LoadScene(string name){// to load the scene of the city
     //	Application.LoadLevel (name);}
 
@@ -54,7 +79,13 @@ public class MenueCode : MonoBehaviour {
 			Login.gameObject.SetActive (clicked);
 			HomePage.gameObject.SetActive (true);
 		}
+<<<<<<< HEAD
 	}//end
+=======
+       UserName.text = "";
+        Password.text = "";
+    }//end
+>>>>>>> origin/change
 
 	public void AddContentRoom(bool clicked)
 	{ 
@@ -221,9 +252,23 @@ public class MenueCode : MonoBehaviour {
 			CreateAccount.gameObject.SetActive (clicked);
 			HomePage.gameObject.SetActive (true);
 		}
+<<<<<<< HEAD
 	}//end
 
 	public void createAccount1(bool clicked)////from home page to create account form
+=======
+
+        MemberUserName.text = "";
+        MemberPassword.text = "";
+        MemberConPassword.text = "";
+        MemberEmail.text = "";
+        MemberBiography.text = "";
+        MemberFirstName.text = "";
+        MemberLastName.text = "";
+    }//end
+
+    public void createAccount1(bool clicked)////from home page to create account form
+>>>>>>> origin/change
 	{ 
 		if (clicked == true) {
 			CreateAccount.gameObject.SetActive (clicked);
@@ -234,7 +279,18 @@ public class MenueCode : MonoBehaviour {
 			CreateAccount.gameObject.SetActive (clicked);
 			Login.gameObject.SetActive (true);
 		}
+<<<<<<< HEAD
 	}//end
+=======
+        MemberUserName.text = "";
+        MemberPassword.text = "";
+        MemberConPassword.text = "";
+        MemberEmail.text = "";
+        MemberBiography.text = "";
+        MemberFirstName.text = "";
+        MemberLastName.text = "";
+    }//end
+>>>>>>> origin/change
 
 
 	public void ContactUs1(bool clicked)////from home page to contact us form
@@ -395,7 +451,18 @@ public class MenueCode : MonoBehaviour {
 			addAdmin.gameObject.SetActive (clicked);
 			AdminView.gameObject.SetActive (true);
 		}
+<<<<<<< HEAD
 	}//end
+=======
+        AdminUserName.text = "";
+        AdminPassword.text = "";
+        AdminConPassword.text = "";
+        AdminEmail.text = "";
+        AdminBiography.text = "";
+        AdminFirstName.text = "";
+        AdminLastName.text = "";
+    }//end
+>>>>>>> origin/change
 
 	public void Request(bool clicked)//from member view to request membership form
 	{ 

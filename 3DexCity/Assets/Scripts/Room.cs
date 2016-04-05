@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
 using UnityEditor;
+<<<<<<< HEAD
 using System.Collections;
+=======
+>>>>>>> origin/change
 using Sfs2X;
 using Sfs2X.Requests;
 using Sfs2X.Entities.Data;
 
+<<<<<<< HEAD
 
 
 public class Room : MonoBehaviour
@@ -20,10 +24,21 @@ public class Room : MonoBehaviour
     public GameObject add;     //for add button 
     public GameObject delete;  //for delete button
     public GameObject arrange; //for arrange button 
+=======
+public class Room 
+{
+
+   
+    public Collider FramePic; //referrnse to frame of picture 
+    public string filePath = ""; //the path of the picture 
+    public Texture2D texture; //the picture itself
+
+>>>>>>> origin/change
     private SmartFox sfs;
     private string userName, accountType;
     private int RoomId;
 
+<<<<<<< HEAD
     void Start()
     {
         anim = GetComponent<Animator>(); //define the avatar
@@ -36,6 +51,12 @@ public class Room : MonoBehaviour
 
 
     public int getRoomId() { return RoomId; }
+=======
+    public int getRoomId() { return RoomId; }
+    public void setaccountType(string a) {  accountType=a; }
+    public string getaccountType() { return accountType; }
+
+>>>>>>> origin/change
     //Manage Room (Add/Delete/Like/Arrang contents) 
     public Room()
     {
@@ -49,6 +70,7 @@ public class Room : MonoBehaviour
         userName = user;
         accountType = accType;
     }
+<<<<<<< HEAD
     // Use this for initialization
 
     void OnTriggerEnter(Collider other) //if the user touch anu collider
@@ -81,6 +103,18 @@ public class Room : MonoBehaviour
         }
         
 
+=======
+
+    void OnTriggerEnter(Collider other) // to know which fram will be affect 
+
+    {
+        if (other.gameObject.CompareTag("Frame"))  // we will know from tag 
+
+        {
+            other.gameObject.SetActive(false);
+            FramePic = other;
+        }
+>>>>>>> origin/change
     }
 
     public void AddContents()
@@ -89,6 +123,7 @@ public class Room : MonoBehaviour
 #if UNITY_EDITOR
         filePath = EditorUtility.OpenFilePanel("Overwrite with png"
                                             , Application.streamingAssetsPath
+<<<<<<< HEAD
                                             , "png");  //to open panel so the user will choose picture from his pc and save file path
 #endif
         if (filePath.Length != 0)  //if the user choose picture that means filePath not empty
@@ -97,6 +132,16 @@ public class Room : MonoBehaviour
             texture = new Texture2D(64, 64);
             www.LoadImageIntoTexture(texture);  //load image as Texture
             FramePic.GetComponent<Renderer>().material.mainTexture = texture; //assign Texture to FramePic (touced object)
+=======
+                                            , "png");
+#endif
+        if (filePath.Length != 0)
+        {
+            WWW www = new WWW("file://" + filePath);
+            texture = new Texture2D(64, 64);
+            www.LoadImageIntoTexture(texture);
+            FramePic.GetComponent<Renderer>().material.mainTexture = texture;
+>>>>>>> origin/change
 
         }
 
@@ -106,6 +151,7 @@ public class Room : MonoBehaviour
     public void DeleteContents()
 
     {
+<<<<<<< HEAD
 
 
         if (EditorUtility.DisplayDialog("Warning Message", "Are you sure you want to delete this content?", "OK", "Cancel")) 
@@ -133,6 +179,9 @@ public class Room : MonoBehaviour
 
         }
         EditorUtility.DisplayDialog("Warning Message", "Please press Z if you find the appropriate postion for this frame ", "OK");
+=======
+        FramePic.GetComponent<Renderer>().material.mainTexture = null;
+>>>>>>> origin/change
     }
 
 
@@ -141,10 +190,13 @@ public class Room : MonoBehaviour
         // As Unity is not thread safe, we process the queued up callbacks on every frame
         if (sfs != null)
             sfs.ProcessEvents();
+<<<<<<< HEAD
 
         //I will use when the user carry the frame
         if (Input.GetKey(KeyCode.Z))
             FramePic.transform.parent = null;
+=======
+>>>>>>> origin/change
     }
 
 

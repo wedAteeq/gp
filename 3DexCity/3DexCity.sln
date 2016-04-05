@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3DexCity.CSharp.Plugins", "3DexCity.CSharp.Plugins.csproj", "{9E0EC75D-0FA5-7779-B26D-9DB82BB82918}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3DexCity.CSharp", "3DexCity.CSharp.csproj", "{1C59329C-5D27-F041-AA63-8BA32E1C6B4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3DexCity.CSharp.Editor", "3DexCity.CSharp.Editor.csproj", "{2FDCD341-F064-5FF7-2AC7-653D8CA64A43}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E0EC75D-0FA5-7779-B26D-9DB82BB82918}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E0EC75D-0FA5-7779-B26D-9DB82BB82918}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E0EC75D-0FA5-7779-B26D-9DB82BB82918}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E0EC75D-0FA5-7779-B26D-9DB82BB82918}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C59329C-5D27-F041-AA63-8BA32E1C6B4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C59329C-5D27-F041-AA63-8BA32E1C6B4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C59329C-5D27-F041-AA63-8BA32E1C6B4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C59329C-5D27-F041-AA63-8BA32E1C6B4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FDCD341-F064-5FF7-2AC7-653D8CA64A43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FDCD341-F064-5FF7-2AC7-653D8CA64A43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FDCD341-F064-5FF7-2AC7-653D8CA64A43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FDCD341-F064-5FF7-2AC7-653D8CA64A43}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

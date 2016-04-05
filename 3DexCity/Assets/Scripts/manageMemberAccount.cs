@@ -360,12 +360,20 @@ public class manageMemberAccount : MonoBehaviour
                         if (Avt == "M")
                         {
                             BoyAvatar.gameObject.SetActive(true);
+<<<<<<< HEAD
                             GirlAvatar.gameObject.SetActive(false);
+=======
+                            //GirlAvatar.gameObject.SetActive(false);
+>>>>>>> origin/change
                         }
                         else
                         {
                             BoyAvatar.gameObject.SetActive(false);
+<<<<<<< HEAD
                             GirlAvatar.gameObject.SetActive(true);
+=======
+                           // GirlAvatar.gameObject.SetActive(true);
+>>>>>>> origin/change
                         }
 
                         if (length < RoomsNum && previousHasRoom == "N" && Act_Room == "Y")

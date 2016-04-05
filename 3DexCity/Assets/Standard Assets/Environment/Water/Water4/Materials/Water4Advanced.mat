@@ -162,6 +162,13 @@ Material:
         second: 313.21838
       data:
         first:
+<<<<<<< HEAD
+=======
+          name: _InvFade
+        second: 0.628783
+      data:
+        first:
+>>>>>>> origin/change
           name: _WaveScale
         second: 0.046289656
       data:
@@ -182,10 +189,13 @@ Material:
         second: 1.6714286
       data:
         first:
+<<<<<<< HEAD
           name: _InvFade
         second: 0.628783
       data:
         first:
+=======
+>>>>>>> origin/change
           name: _HeightDisplacement
         second: 3.2722514
       data:
@@ -255,28 +265,59 @@ Material:
         second: {r: 1, g: 1, b: 0, a: 0}
       data:
         first:
+<<<<<<< HEAD
           name: _BumpMap_ST
         second: {r: 1, g: 1, b: 0, a: 0}
       data:
         first:
+=======
+>>>>>>> origin/change
           name: _RefrColor
         second: {r: 0.5233905, g: 0.9477612, b: 0.9121496, a: 1}
       data:
         first:
+<<<<<<< HEAD
           name: _Fresnel_ST
         second: {r: 1, g: 1, b: 0, a: 0}
       data:
         first:
+=======
+>>>>>>> origin/change
           name: WaveSpeed
         second: {r: 1.086165, g: 4.440575, b: 12.105146, a: -3.0206447}
       data:
         first:
+<<<<<<< HEAD
           name: _ReflectiveColor_ST
         second: {r: 1, g: 1, b: 0, a: 0}
       data:
         first:
           name: _HorizonColor
         second: {r: 0.052907113, g: 0.24486735, b: 0.2835821, a: 1}
+=======
+          name: _HorizonColor
+        second: {r: 0.052907113, g: 0.24486735, b: 0.2835821, a: 1}
+      data:
+        first:
+          name: _Displacement
+        second: {r: 6.6371665, g: 20.353983, b: -1, a: -0.681416}
+      data:
+        first:
+          name: _ShoreTiling
+        second: {r: 1, g: 1, b: 0.1, a: 0.1}
+      data:
+        first:
+          name: _BumpMap_ST
+        second: {r: 1, g: 1, b: 0, a: 0}
+      data:
+        first:
+          name: _Fresnel_ST
+        second: {r: 1, g: 1, b: 0, a: 0}
+      data:
+        first:
+          name: _ReflectiveColor_ST
+        second: {r: 1, g: 1, b: 0, a: 0}
+>>>>>>> origin/change
       data:
         first:
           name: _ReflectionTex_ST
@@ -375,6 +416,7 @@ Material:
         second: {r: 0.1, g: 0.1, b: 0.01, a: 0.01}
       data:
         first:
+<<<<<<< HEAD
           name: _Displacement
         second: {r: 6.6371665, g: 20.353983, b: -1, a: -0.681416}
       data:
@@ -383,6 +425,8 @@ Material:
         second: {r: 1, g: 1, b: 0.1, a: 0.1}
       data:
         first:
+=======
+>>>>>>> origin/change
           name: _DisplacementXz
         second: {r: 0.6499999, g: -2.9203715, b: 1.6599998, a: -3.9363046}
       data:
